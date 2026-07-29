@@ -79,16 +79,84 @@
         .nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
         .nav-links a:hover { color: var(--gold); }
 
-        /* --- HERO SECTION --- */
+        /* --- WELCOME HERO & WEDDING ANIMATION --- */
         .hero {
             height: 100vh;
             display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.8)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+            background: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.85)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
             position: relative;
         }
-        .hero-content { max-width: 900px; }
-        .hero-subtitle { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 5px; color: var(--text-light); margin-bottom: 10px; }
-        .hero-services { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 30px; font-style: italic; }
+
+        .hero-content {
+            max-width: 900px;
+            animation: heroFadeIn 1.5s ease-out forwards;
+        }
+
+        /* WEDDING ANIMATED RING ICON */
+        .ring-animation {
+            font-size: 3.5rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            animation: ringFloat 3s ease-in-out infinite, ringGlow 2s alternate infinite;
+        }
+
+        /* GOLD SHIMMER TEXT ANIMATION */
+        .shimmer-text {
+            background: linear-gradient(90deg, #D4AF37 0%, #FFF8DC 50%, #D4AF37 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShimmer 4s linear infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem; text-transform: uppercase; letter-spacing: 5px;
+            color: var(--text-light); margin-bottom: 15px;
+            animation: slideDown 1.2s ease-out;
+        }
+        .hero-services { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 35px; font-style: italic; }
+
+        /* BOUNCE SCROLL ARROW ANIMATION */
+        .scroll-down {
+            position: absolute; bottom: 25px; left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold); font-size: 1.8rem;
+            animation: bounceScroll 2s infinite;
+            cursor: pointer;
+        }
+
+        /* --- KEYFRAMES FOR ANIMATIONS --- */
+        @keyframes heroFadeIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes ringFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(8deg); }
+        }
+
+        @keyframes ringGlow {
+            0% { filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4)); }
+            100% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.9)); }
+        }
+
+        @keyframes goldShimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes bounceScroll {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -12px); }
+            60% { transform: translate(-50%, -6px); }
+        }
 
         /* --- SERVICES --- */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
@@ -106,7 +174,7 @@
         }
         .service-card h3 { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
 
-        /* --- PORTFOLIO GALLERY (UNIQUE PHOTOS) --- */
+        /* --- PORTFOLIO GALLERY --- */
         .filters { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
         .filter-btn {
             background: transparent; border: none; color: var(--text-gray);
@@ -134,7 +202,7 @@
         .portfolio-overlay h4 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--gold); }
         .portfolio-overlay p { font-size: 0.85rem; color: var(--text-light); }
 
-        /* --- NATIVE DIRECT VIDEO SECTION --- */
+        /* --- PLAYABLE VIDEO SECTION --- */
         .videos { background: #080808; }
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 40px; }
         .video-card {
@@ -219,17 +287,21 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- ANIMATED WELCOME HERO SECTION -->
     <section id="home" class="hero">
         <div class="hero-content container">
+            <div class="ring-animation">&#128141;&#10024;</div>
             <p class="hero-subtitle">Aliarts Perfect Photographer</p>
-            <h1>Capturing Royal Memories</h1>
+            <h1 class="shimmer-text">Capturing Royal Memories</h1>
             <p class="hero-services">Candid Photography &bull; Cinematic Videography &bull; Drone Aerial Coverage &bull; Traditional Events</p>
-            <a href="#contact" class="prime-btn">Book Your Date</a>
+            <a href="#about" class="prime-btn">Explore Portfolio</a>
         </div>
+        
+        <!-- BOUNCING SCROLL DOWN INDICATOR -->
+        <a href="#about" class="scroll-down">&#8659;</a>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT SECTION (SHOW DETAILS STARTS HERE) -->
     <section id="about" class="section-padding container">
         <h2>The Art of Storytelling</h2>
         <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
@@ -258,7 +330,7 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION (12 UNIQUE PHOTOS - NO DUPLICATES) -->
+    <!-- PORTFOLIO SECTION (12 UNIQUE PHOTOS) -->
     <section id="portfolio" class="section-padding container">
         <h2>Photo Gallery</h2>
         
@@ -350,54 +422,3 @@
             </div>
             <div class="portfolio-item destination">
                 <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Bride Smile Close">
-                <div class="portfolio-overlay">
-                    <h4>Bridal Smile</h4>
-                    <p>Pure Candid Portrait</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CLEAN DIRECT HTML5 VIDEO SECTION (NO YOUTUBE BRANDING) -->
-    <section id="videos" class="section-padding videos">
-        <div class="container">
-            <h2>Cinematic Wedding Films</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Watch our latest 4K wedding teasers, drone highlights, and cinematic films.</p>
-            
-            <div class="video-grid">
-                <!-- VIDEO 1 -->
-                <div class="video-card">
-                    <video class="video-player" controls poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80">
-                        <source src="videos/wedding-teaser.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-info">
-                        <h4>Royal Destination Wedding</h4>
-                        <p>Cinematic Teaser &bull; Udaipur</p>
-                    </div>
-                </div>
-
-                <!-- VIDEO 2 -->
-                <div class="video-card">
-                    <video class="video-player" controls poster="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80">
-                        <source src="videos/prewedding-film.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-info">
-                        <h4>Sunset Pre-Wedding Story</h4>
-                        <p>Cinematic &bull; Drone Aerial Shot</p>
-                    </div>
-                </div>
-
-                <!-- VIDEO 3 -->
-                <div class="video-card">
-                    <video class="video-player" controls poster="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80">
-                        <source src="videos/haldi-sangeet.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-info">
-                        <h4>Grand Haldi & Sangeet Night</h4>
-                        <p>Traditional Event Highlight</p>
-                    </div>
-                </div>
-
-                <!-- VIDEO 4 -->
-                <div class="video-card">
-                    <video class="video-player" controls poster="https:
