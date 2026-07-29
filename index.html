@@ -75,15 +75,15 @@
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
         .brand { font-size: 2rem; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; }
         .brand span { color: var(--text-light); font-weight: 300; }
-        .nav-links { display: flex; gap: 35px; list-style: none; }
-        .nav-links a { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
         .nav-links a:hover { color: var(--gold); }
 
         /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
             display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.8)), url('images/hero.jpg') center/cover no-repeat fixed;
+            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.8)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
             position: relative;
         }
         .hero-content { max-width: 900px; }
@@ -106,7 +106,7 @@
         }
         .service-card h3 { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
 
-        /* --- PORTFOLIO GALLERY --- */
+        /* --- PORTFOLIO GALLERY (PHOTOS) --- */
         .filters { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
         .filter-btn {
             background: transparent; border: none; color: var(--text-gray);
@@ -117,8 +117,8 @@
         }
         .filter-btn.active, .filter-btn:hover { color: var(--gold); border-color: var(--gold); }
 
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
-        .portfolio-item { position: relative; overflow: hidden; height: 300px; border-radius: 4px; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .portfolio-item { position: relative; overflow: hidden; height: 280px; border-radius: 4px; }
         .portfolio-item img {
             width: 100%; height: 100%; object-fit: cover;
             transition: var(--transition);
@@ -127,12 +127,28 @@
         .portfolio-overlay {
             position: absolute; inset: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
-            display: flex; flex-direction: column; justify-content: flex-end; padding: 25px;
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
             opacity: 0; transition: var(--transition);
         }
         .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-        .portfolio-overlay h4 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--gold); }
+        .portfolio-overlay h4 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--gold); }
         .portfolio-overlay p { font-size: 0.85rem; color: var(--text-light); }
+
+        /* --- VIDEO SHOWCASE SECTION --- */
+        .videos { background: #080808; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 40px; }
+        .video-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 6px; overflow: hidden;
+            transition: var(--transition);
+        }
+        .video-card:hover { border-color: var(--gold); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-info { padding: 18px; text-align: center; }
+        .video-info h4 { font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold); margin-bottom: 5px; }
+        .video-info p { font-size: 0.85rem; color: var(--text-gray); }
 
         /* --- CONTACT SECTION --- */
         .contact { background: #0E0E0E; }
@@ -177,7 +193,7 @@
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2.2rem; }
             .navbar { flex-direction: column; gap: 15px; }
-            .nav-links { gap: 15px; font-size: 0.8rem; }
+            .nav-links { gap: 15px; font-size: 0.8rem; flex-wrap: wrap; justify-content: center; }
             .contact-grid { grid-template-columns: 1fr; gap: 40px; }
             .contact-form form { grid-template-columns: 1fr; }
             .contact-form textarea, .contact-form button { grid-column: span 1; }
@@ -197,7 +213,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#portfolio">Photos</a></li>
+                <li><a href="#videos">Videos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -242,19 +259,19 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION -->
+    <!-- PORTFOLIO SECTION (EXPANDED PHOTO GALLERY - 12 PHOTOS) -->
     <section id="portfolio" class="section-padding container">
-        <h2>Featured Portfolio</h2>
+        <h2>Photo Gallery</h2>
         
         <div class="filters">
             <button class="filter-btn active" onclick="filterGallery('all')">All Work</button>
             <button class="filter-btn" onclick="filterGallery('candid')">Candid</button>
             <button class="filter-btn" onclick="filterGallery('cinematic')">Cinematic</button>
-            <button class="filter-btn" onclick="filterGallery('destination')">Destination Shoots</button>
+            <button class="filter-btn" onclick="filterGallery('destination')">Destination</button>
+            <button class="filter-btn" onclick="filterGallery('traditional')">Traditional</button>
         </div>
 
         <div class="portfolio-grid">
-            <!-- PHOTO ITEM 1 -->
             <div class="portfolio-item candid">
                 <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Candid">
                 <div class="portfolio-overlay">
@@ -262,15 +279,13 @@
                     <p>Candid Emotion &bull; Mumbai</p>
                 </div>
             </div>
-            <!-- PHOTO ITEM 2 -->
             <div class="portfolio-item cinematic">
                 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Cinematic Teaser">
                 <div class="portfolio-overlay">
-                    <h4>Cinematic Wedding Film</h4>
+                    <h4>Cinematic Portrait</h4>
                     <p>Drone & Gimbal Highlight</p>
                 </div>
             </div>
-            <!-- PHOTO ITEM 3 -->
             <div class="portfolio-item destination">
                 <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Destination Shoot">
                 <div class="portfolio-overlay">
@@ -278,15 +293,13 @@
                     <p>Destination Shoot</p>
                 </div>
             </div>
-            <!-- PHOTO ITEM 4 -->
-            <div class="portfolio-item candid">
+            <div class="portfolio-item traditional">
                 <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=80" alt="Traditional Ritual">
                 <div class="portfolio-overlay">
                     <h4>Haldi & Rituals</h4>
                     <p>Traditional Details</p>
                 </div>
             </div>
-            <!-- PHOTO ITEM 5 -->
             <div class="portfolio-item destination">
                 <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Royal Wedding Setup">
                 <div class="portfolio-overlay">
@@ -294,88 +307,99 @@
                     <p>Event Coverage</p>
                 </div>
             </div>
-            <!-- PHOTO ITEM 6 -->
             <div class="portfolio-item cinematic">
                 <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Bride Portrait">
                 <div class="portfolio-overlay">
                     <h4>Bridal Elegance</h4>
+                    <p>Cinematic Shot</p>
+                </div>
+            </div>
+            <div class="portfolio-item candid">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Couple Laugh">
+                <div class="portfolio-overlay">
+                    <h4>Unscripted Joy</h4>
+                    <p>Real Candid Magic</p>
+                </div>
+            </div>
+            <div class="portfolio-item traditional">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Sangeet Night">
+                <div class="portfolio-overlay">
+                    <h4>Sangeet Celebration</h4>
+                    <p>High Energy Event</p>
+                </div>
+            </div>
+            <div class="portfolio-item destination">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Beach Shoot">
+                <div class="portfolio-overlay">
+                    <h4>Beach Sunset Couple</h4>
+                    <p>Goa Pre-Wedding</p>
+                </div>
+            </div>
+            <div class="portfolio-item candid">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony">
+                <div class="portfolio-overlay">
+                    <h4>The Sacred Ring</h4>
+                    <p>Engagement Story</p>
+                </div>
+            </div>
+            <div class="portfolio-item cinematic">
+                <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Groom Portrait">
+                <div class="portfolio-overlay">
+                    <h4>Royal Groom</h4>
                     <p>Cinematic Portrait</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="section-padding contact">
-        <div class="container">
-            <h2>Connect With Aliarts</h2>
-            <div class="contact-grid">
-                
-                <div class="info-box">
-                    <div class="info-item">
-                        <label>Lead Photographer</label>
-                        <p>Ali</p>
-                    </div>
-                    <div class="info-item">
-                        <label>Call / WhatsApp</label>
-                        <a href="tel:8451894419">+91 8451894419</a>
-                    </div>
-                    <div class="info-item">
-                        <label>Email Inquiry</label>
-                        <a href="mailto:alimehndi44@gmail.com">alimehndi44@gmail.com</a>
-                    </div>
-                    <div class="info-item">
-                        <label>Studio / Location</label>
-                        <p>Dr Zakir Hussain Nagar Link Road 43</p>
-                    </div>
+            <div class="portfolio-item traditional">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Reception Night">
+                <div class="portfolio-overlay">
+                    <h4>Grand Reception</h4>
+                    <p>Full Event Coverage</p>
                 </div>
-
-                <div class="contact-form">
-                    <form action="https://formspree.io/f/alimehndi44@gmail.com" method="POST">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="tel" name="phone" placeholder="Phone Number" required>
-                        <select name="event_type" style="grid-column: span 2;" required>
-                            <option value="" disabled selected>Select Event Type</option>
-                            <option value="Complete Wedding Package">Complete Wedding Package</option>
-                            <option value="Pre-Wedding Shoot">Pre-Wedding Shoot</option>
-                            <option value="Haldi / Mehendi / Sangeet">Haldi / Mehendi / Sangeet</option>
-                            <option value="Cinematic Video & Drone Only">Cinematic Video & Drone Only</option>
-                        </select>
-                        <textarea name="message" placeholder="Tell us about event dates & location..."></textarea>
-                        <button type="submit" class="prime-btn">Send Booking Inquiry</button>
-                    </form>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
+    <!-- NEW CINEMATIC VIDEOS SECTION (5 VIDEOS) -->
+    <section id="videos" class="section-padding videos">
         <div class="container">
-            <p style="color: var(--gold); font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 5px;">ALIARTS PERFECT PHOTOGRAPHER</p>
-            <p>&copy; All Rights Reserved. Designed for Luxury Weddings.</p>
-        </div>
-    </footer>
+            <h2>Cinematic Wedding Films</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Watch our latest 4K wedding teasers, drone highlights, and cinematic films.</p>
+            
+            <div class="video-grid">
+                <!-- VIDEO 1 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Royal Wedding Teaser" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4>Royal Destination Wedding</h4>
+                        <p>Cinematic Film &bull; Udaipur</p>
+                    </div>
+                </div>
 
-    <!-- INTERACTIVE GALLERY FILTER SCRIPT -->
-    <script>
-        function filterGallery(category) {
-            const items = document.querySelectorAll('.portfolio-item');
-            const buttons = document.querySelectorAll('.filter-btn');
+                <!-- VIDEO 2 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Pre-Wedding Film" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4>Sunset Pre-Wedding Story</h4>
+                        <p>Cinematic &bull; Drone Aerial Shot</p>
+                    </div>
+                </div>
 
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+                <!-- VIDEO 3 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Grand Haldi Sangeet" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4>Grand Haldi & Sangeet Night</h4>
+                        <p>Traditional Event Highlight</p>
+                    </div>
+                </div>
 
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-  </html>
-  
+                <!-- VIDEO 4 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Bridal Entry" allowfullscr
