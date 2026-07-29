@@ -47,45 +47,38 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .section-padding { padding: 80px 0; }
 
-        /* --- WELCOME ANIMATION SCREEN WITH DETAILS --- */
+        /* --- WELCOME ANIMATION OVERLAY --- */
         #welcome-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), 
-                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            z-index: 999999;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999999;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
         }
 
         .welcome-card {
-            background: rgba(18, 18, 18, 0.92);
+            background: #121212;
             border: 2px solid var(--gold);
-            padding: 35px 25px;
+            padding: 30px 20px;
             border-radius: 12px;
             text-align: center;
-            max-width: 500px;
+            max-width: 450px;
             width: 100%;
-            box-shadow: 0 0 35px rgba(212, 175, 55, 0.3);
-            animation: popupAnim 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        @keyframes popupAnim {
-            0% { opacity: 0; transform: scale(0.7) translateY(30px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
         }
 
         .welcome-card h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--gold);
             margin-bottom: 5px;
         }
 
         .welcome-card .subtitle {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #DDD;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -93,12 +86,12 @@
         }
 
         .details-box {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 8px;
-            padding: 20px;
+            padding: 18px;
             text-align: left;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .detail-row {
@@ -106,21 +99,21 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 12px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #FFF;
         }
         .detail-row:last-child { margin-bottom: 0; }
 
         .detail-icon {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gold);
-            width: 25px;
+            width: 20px;
             text-align: center;
         }
 
         .detail-text strong {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -130,19 +123,17 @@
             background: var(--gold);
             color: #000;
             border: none;
-            padding: 16px 35px;
-            font-size: 1rem;
+            padding: 15px 20px;
+            font-size: 0.95rem;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
             border-radius: 6px;
             width: 100%;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-            transition: var(--transition);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            touch-action: manipulation;
         }
-
-        .enter-btn:active { transform: scale(0.96); }
 
         /* --- NAVBAR --- */
         header {
@@ -189,28 +180,19 @@
         }
         .service-card h3 { font-size: 1.6rem; color: var(--gold); margin-bottom: 10px; }
 
-        /* --- PHOTO GALLERY (MOBILE TAP LIGHTBOX FIX) --- */
-        .filters { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 25px; }
-        .filter-btn {
-            background: transparent; border: 1px solid rgba(212, 175, 55, 0.3); color: var(--text-gray);
-            padding: 8px 16px; text-transform: uppercase; font-size: 0.75rem;
-            cursor: pointer; border-radius: 4px;
-        }
-        .filter-btn.active { color: #000; background: var(--gold); border-color: var(--gold); }
-
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        /* --- GALLERY --- */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
         .portfolio-item { 
             position: relative; overflow: hidden; height: 260px; 
             border-radius: 8px; cursor: pointer;
             border: 1px solid rgba(212,175,55,0.2);
         }
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
         
         .portfolio-overlay {
             position: absolute; inset: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1));
             display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;
-            pointer-events: none;
         }
         .portfolio-overlay h4 { font-family: var(--font-heading); font-size: 1.4rem; color: var(--gold); }
         .portfolio-overlay p { font-size: 0.8rem; color: #FFF; }
@@ -219,7 +201,7 @@
         /* --- FULL SCREEN LIGHTBOX POPUP --- */
         #photoModal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.96); z-index: 9999999;
+            background: rgba(0, 0, 0, 0.96); z-index: 99999999;
             justify-content: center; align-items: center; flex-direction: column;
             padding: 20px;
         }
@@ -230,7 +212,7 @@
             font-size: 3rem; color: var(--gold); cursor: pointer; line-height: 1;
         }
 
-        /* --- VIDEOS SECTION --- */
+        /* --- VIDEOS --- */
         .videos { background: #080808; border-top: 1px solid rgba(212,175,55,0.15); }
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
         .video-card { background: var(--bg-card); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; overflow: hidden; }
@@ -266,13 +248,12 @@
 </head>
 <body>
 
-    <!-- 1. ANIMATED WELCOME SCREEN WITH ALI'S FULL DETAILS -->
+    <!-- 1. WELCOME POPUP WITH DIRECT CLOSE TRIGGER -->
     <div id="welcome-overlay">
         <div class="welcome-card">
             <h2>Aliarts Photographer</h2>
             <p class="subtitle">Luxury Wedding & Cinematic Specialist</p>
 
-            <!-- PROMINENT DETAILS BOX -->
             <div class="details-box">
                 <div class="detail-row">
                     <span class="detail-icon">&#128100;</span>
@@ -307,7 +288,10 @@
                 </div>
             </div>
 
-            <button class="enter-btn" onclick="closeWelcomeScreen()">SHOW MY DETAIL & PORTFOLIO</button>
+            <!-- MULTI-EVENT HANDLER FOR INSTANT MOBILE TAP -->
+            <button class="enter-btn" id="closeBtn" onclick="closeWelcome()" ontouchstart="closeWelcome()">
+                SHOW MY DETAIL & PORTFOLIO
+            </button>
         </div>
     </div>
 
@@ -372,16 +356,9 @@
     <section id="photos" class="section-padding container">
         <h2>Photo Gallery</h2>
         <p style="text-align: center; margin-bottom: 20px; color: var(--gold);">Tap any photo below to open in Full Size!</p>
-        
-        <div class="filters">
-            <button class="filter-btn active" onclick="filterGallery(event, 'all')">All Work</button>
-            <button class="filter-btn" onclick="filterGallery(event, 'candid')">Candid</button>
-            <button class="filter-btn" onclick="filterGallery(event, 'cinematic')">Cinematic</button>
-            <button class="filter-btn" onclick="filterGallery(event, 'destination')">Destination</button>
-        </div>
 
         <div class="portfolio-grid">
-            <div class="portfolio-item candid" data-src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" data-title="Royal Couple">
+            <div class="portfolio-item" onclick="openPhotoModal('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80', 'Royal Couple')">
                 <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding">
                 <div class="portfolio-overlay">
                     <h4>Royal Couple</h4>
@@ -390,7 +367,7 @@
                 </div>
             </div>
 
-            <div class="portfolio-item cinematic" data-src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80" data-title="Celebration Sky">
+            <div class="portfolio-item" onclick="openPhotoModal('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80', 'Celebration Sky')">
                 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Balloons">
                 <div class="portfolio-overlay">
                     <h4>Celebration Sky</h4>
@@ -399,7 +376,7 @@
                 </div>
             </div>
 
-            <div class="portfolio-item destination" data-src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80" data-title="Pre-Wedding Magic">
+            <div class="portfolio-item" onclick="openPhotoModal('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80', 'Pre-Wedding Magic')">
                 <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Destination">
                 <div class="portfolio-overlay">
                     <h4>Pre-Wedding Magic</h4>
@@ -408,20 +385,11 @@
                 </div>
             </div>
 
-            <div class="portfolio-item candid" data-src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80" data-title="The Eternal Rings">
+            <div class="portfolio-item" onclick="openPhotoModal('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80', 'The Eternal Rings')">
                 <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Rings">
                 <div class="portfolio-overlay">
                     <h4>The Eternal Rings</h4>
                     <p>Detail Shot</p>
-                    <span class="tap-tag">&#128065; Tap to Expand</span>
-                </div>
-            </div>
-
-            <div class="portfolio-item cinematic" data-src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1200&q=80" data-title="Together Forever">
-                <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=80" alt="Hands">
-                <div class="portfolio-overlay">
-                    <h4>Together Forever</h4>
-                    <p>Candid Touch</p>
                     <span class="tap-tag">&#128065; Tap to Expand</span>
                 </div>
             </div>
@@ -445,4 +413,48 @@
                 <div class="video-card">
                     <video class="video-player" controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-wedding-couple-walking-down-the-aisle-41584-large.mp4" type="video/mp4">
-                    </vid
+                    </video>
+                    <div class="video-info">
+                        <h4>Royal Destination Teaser</h4>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <video class="video-player" controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-kissing-under-a-veil-41582-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-info">
+                        <h4>Sunset Pre-Wedding Film</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding contact">
+        <div class="container">
+            <h2>Contact Aliarts</h2>
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-info-item">
+                        <label>Lead Artist</label>
+                        <p>Ali (Photographer & Videographer)</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <label>Phone / WhatsApp</label>
+                        <a href="tel:8451894419">+91 8451894419</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <label>Email Inquiry</label>
+                        <a href="mailto:alimehndi44@gmail.com">alimehndi44@gmail.com</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <label>Studio Address</label>
+                        <p>Dr Zakir Hussain Nagar Link Road 43</p>
+                    </div>
+                </div>
+
+                <div>
+                    <form action="https://formspree.io/f/alimehndi44@gmail.com" method="POST" style="display:flex; flex-direction:column; gap:15px;">
+                       
