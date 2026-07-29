@@ -35,15 +35,18 @@
             overflow-x: hidden;
         }
 
+        /* SECTION OFFSET FOR NAVBAR */
+        section { scroll-margin-top: 80px; }
+
         h1, h2, h3, .brand { font-family: var(--font-heading); font-weight: 600; letter-spacing: 1px; }
-        h1 { font-size: 3.5rem; text-transform: uppercase; color: var(--gold); margin-bottom: 15px; }
-        h2 { font-size: 2.8rem; text-align: center; margin-bottom: 15px; color: var(--gold); text-transform: uppercase; }
+        h1 { font-size: 3.2rem; text-transform: uppercase; color: var(--gold); margin-bottom: 15px; }
+        h2 { font-size: 2.6rem; text-align: center; margin-bottom: 15px; color: var(--gold); text-transform: uppercase; }
         p { color: var(--text-gray); font-weight: 300; }
 
         a { text-decoration: none; color: inherit; transition: var(--transition); }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section-padding { padding: 90px 0; }
+        .section-padding { padding: 80px 0; }
         
         .prime-btn {
             display: inline-block;
@@ -65,79 +68,9 @@
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
         }
 
-        /* --- PURE CSS OVERLAY TOGGLE (NO JAVASCRIPT NEEDED) --- */
-        #site-toggle { display: none; }
-
-        #welcome-screen {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100vh;
-            z-index: 999999;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), 
-                        url('https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        /* When Checkbox is Checked, Hide Overlay Immediately */
-        #site-toggle:checked + #welcome-screen {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            display: none !important;
-        }
-
-        .welcome-box {
-            max-width: 700px;
-            background: rgba(15, 15, 15, 0.85);
-            padding: 40px 30px;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
-        }
-
-        .welcome-box h2 {
-            font-size: 2.2rem;
-            color: var(--gold);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .welcome-box p {
-            font-size: 1rem;
-            color: #E0E0E0;
-            margin-bottom: 30px;
-        }
-
-        .show-detail-btn {
-            background: var(--gold);
-            color: #000;
-            border: none;
-            padding: 18px 45px;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-            border-radius: 4px;
-            display: inline-block;
-            user-select: none;
-        }
-
-        .show-detail-btn:active {
-            transform: scale(0.95);
-            background: #FFF;
-        }
-
         /* --- NAVBAR --- */
         header {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 10000;
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
@@ -146,16 +79,16 @@
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
         .brand { font-size: 1.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
         .brand span { color: var(--text-light); font-weight: 300; }
-        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
         .nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
-        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover, .nav-links a:active { color: var(--gold); }
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
+            height: 90vh;
             display: flex; align-items: center; justify-content: center; text-align: center;
             background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.85)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
-            padding-top: 60px;
+            padding-top: 80px;
         }
         .hero-content { max-width: 900px; }
         .hero-subtitle { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 5px; color: var(--text-light); margin-bottom: 10px; }
@@ -166,10 +99,10 @@
         
         .service-card {
             background: var(--bg-card);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             padding: 40px 30px; text-align: center;
             transition: var(--transition);
-            border-radius: 4px;
+            border-radius: 6px;
         }
         .service-card:hover {
             transform: translateY(-8px);
@@ -178,42 +111,73 @@
         }
         .service-card h3 { font-size: 1.8rem; color: var(--gold); margin-bottom: 15px; }
 
-        /* --- PHOTO GALLERY --- */
-        .filters { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+        /* --- PHOTO GALLERY WITH POPUP TAP --- */
+        .filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .filter-btn {
-            background: transparent; border: 1px solid rgba(212, 175, 55, 0.2); color: var(--text-gray);
-            padding: 8px 18px; font-family: var(--font-body);
+            background: transparent; border: 1px solid rgba(212, 175, 55, 0.3); color: var(--text-gray);
+            padding: 10px 20px; font-family: var(--font-body);
             text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;
             cursor: pointer; transition: var(--transition); border-radius: 3px;
         }
         .filter-btn.active, .filter-btn:hover { color: #000; background: var(--gold); border-color: var(--gold); }
 
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .portfolio-item { position: relative; overflow: hidden; height: 280px; border-radius: 4px; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .portfolio-item { 
+            position: relative; overflow: hidden; height: 280px; 
+            border-radius: 6px; cursor: pointer;
+            border: 1px solid rgba(212,175,55,0.1);
+        }
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
-        .portfolio-item:hover img { transform: scale(1.08); }
+        .portfolio-item:active img, .portfolio-item:hover img { transform: scale(1.08); }
+        
         .portfolio-overlay {
             position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
+            background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.1));
             display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
-            opacity: 0; transition: var(--transition);
+            opacity: 0.9; transition: var(--transition);
         }
-        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-        .portfolio-overlay h4 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--gold); }
-        .portfolio-overlay p { font-size: 0.85rem; color: var(--text-light); }
+        .portfolio-overlay h4 { font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold); }
+        .portfolio-overlay p { font-size: 0.8rem; color: var(--text-light); }
+        .tap-hint { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
 
-        /* --- PLAYABLE WEDDING VIDEOS SECTION --- */
-        .videos { background: #080808; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+        /* --- FULL SCREEN PHOTO LIGHTBOX POPUP --- */
+        .photo-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95); z-index: 999999;
+            justify-content: center; align-items: center; flex-direction: column;
+            padding: 20px; backdrop-filter: blur(8px);
+        }
+        .photo-modal img { max-width: 90%; max-height: 75vh; border: 2px solid var(--gold); border-radius: 6px; box-shadow: 0 0 30px rgba(212,175,55,0.4); }
+        .photo-modal h3 { font-size: 2rem; color: var(--gold); margin-top: 15px; }
+        .photo-modal-close {
+            position: absolute; top: 25px; right: 25px;
+            font-size: 2.5rem; color: var(--gold); cursor: pointer; font-weight: bold;
+        }
+
+        /* --- VIDEOS SECTION --- */
+        .videos { background: #080808; border-top: 1px solid rgba(212, 175, 55, 0.15); border-bottom: 1px solid rgba(212, 175, 55, 0.15); }
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
         
         .video-card {
             background: var(--bg-card);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.25);
             border-radius: 6px; overflow: hidden;
-            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
-        .video-card:hover { border-color: var(--gold); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2); }
-        .video-player { width: 100%; height: 230px; object-fit: cover; background: #000; display: block; }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe, .video-wrapper video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+
         .video-info { padding: 20px; text-align: center; }
         .video-info h4 { font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold); margin-bottom: 5px; }
         .video-info p { font-size: 0.85rem; color: var(--text-gray); }
@@ -223,8 +187,7 @@
         .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; margin-top: 40px; }
         
         .info-box { display: flex; flex-direction: column; gap: 25px; }
-        .info-item { display: flex; flex-direction: column; gap: 5px; }
-        .info-item label { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--gold); }
+        .info-item label { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--gold); display: block; }
         .info-item p, .info-item a { font-size: 1.1rem; color: var(--text-light); }
         
         .contact-form form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -233,7 +196,7 @@
             background: var(--bg-card);
             border: 1px solid rgba(212, 175, 55, 0.2);
             color: var(--text-light); font-family: var(--font-body);
-            outline: none; transition: var(--transition);
+            outline: none; transition: var(--transition); border-radius: 4px;
         }
         .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
         .contact-form textarea { grid-column: span 2; height: 120px; resize: none; }
@@ -241,14 +204,12 @@
 
         /* --- WHATSAPP FLOATING BUTTON --- */
         .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+            position: fixed; bottom: 25px; right: 25px; z-index: 1000;
             background-color: #25D366; color: #FFF;
             width: 60px; height: 60px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-size: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            transition: var(--transition);
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
 
         /* --- FOOTER --- */
         footer {
@@ -258,30 +219,17 @@
 
         /* --- RESPONSIVE MOBILE FIXES --- */
         @media (max-width: 768px) {
-            h1 { font-size: 2.4rem; }
-            h2 { font-size: 2rem; }
-            .navbar { flex-direction: column; gap: 12px; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .navbar { flex-direction: column; gap: 10px; padding: 12px 0; }
             .nav-links { gap: 12px; font-size: 0.75rem; flex-wrap: wrap; justify-content: center; }
-            .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 30px; }
             .contact-form form { grid-template-columns: 1fr; }
             .contact-form textarea, .contact-form button { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
-
-    <!-- CSS HIDDEN CHECKBOX CONTROL -->
-    <input type="checkbox" id="site-toggle">
-
-    <!-- 1. WEDDING WELCOME INTRO SCREEN -->
-    <div id="welcome-screen">
-        <div class="welcome-box">
-            <h2>Aliarts Perfect Photographer</h2>
-            <p>Welcome to our luxury wedding photography & cinematic film portfolio.</p>
-            <!-- Label acts as the button connected to checkbox -->
-            <label for="site-toggle" class="show-detail-btn">SHOW MY DETAIL</label>
-        </div>
-    </div>
 
     <!-- WHATSAPP DIRECT BUTTON -->
     <a href="https://wa.me/918451894419?text=Hi%20Ali,%20I%20want%20to%20inquire%20about%20wedding%20photography" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">&#128172;</a>
@@ -314,7 +262,7 @@
     <!-- ABOUT SECTION -->
     <section id="about" class="section-padding container">
         <h2>The Art of Storytelling</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.05rem;">
             Welcome to <strong>Aliarts Perfect Photographer</strong>. Led by Ali, we specialize in framing unscripted candid emotions, high-definition cinematic wedding films, and breathtaking aerial drone perspectives. From intimate ceremonies to grand destination weddings, we turn your unforgettable moments into everlasting visual art.
         </p>
     </section>
@@ -343,6 +291,7 @@
     <!-- PHOTOS GALLERY SECTION -->
     <section id="photos" class="section-padding container">
         <h2>Photo Gallery</h2>
+        <p style="text-align: center; margin-bottom: 25px; color: var(--gold);">Tap any photo below to view in Full Size!</p>
         
         <div class="filters">
             <button class="filter-btn active" onclick="filterGallery(event, 'all')">All Work</button>
@@ -353,74 +302,90 @@
         </div>
 
         <div class="portfolio-grid">
-            <div class="portfolio-item candid">
+            <div class="portfolio-item candid" onclick="openPhotoModal('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80', 'Royal Couple')">
                 <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Couple">
                 <div class="portfolio-overlay">
                     <h4>Royal Couple</h4>
                     <p>Candid Emotion &bull; Mumbai</p>
+                    <span class="tap-hint">&#128065; Tap to expand</span>
                 </div>
             </div>
-            <div class="portfolio-item cinematic">
+
+            <div class="portfolio-item cinematic" onclick="openPhotoModal('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80', 'Celebration Sky')">
                 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Balloons Wedding">
                 <div class="portfolio-overlay">
                     <h4>Celebration Sky</h4>
                     <p>Cinematic Shot</p>
+                    <span class="tap-hint">&#128065; Tap to expand</span>
                 </div>
             </div>
-            <div class="portfolio-item destination">
+
+            <div class="portfolio-item destination" onclick="openPhotoModal('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80', 'Pre-Wedding Magic')">
                 <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Black Sand Destination">
                 <div class="portfolio-overlay">
                     <h4>Pre-Wedding Magic</h4>
                     <p>Destination Shoot</p>
+                    <span class="tap-hint">&#128065; Tap to expand</span>
                 </div>
             </div>
-            <div class="portfolio-item traditional">
+
+            <div class="portfolio-item traditional" onclick="openPhotoModal('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80', 'Grand Banquet')">
                 <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Royal Dining Setup">
                 <div class="portfolio-overlay">
                     <h4>Grand Banquet</h4>
                     <p>Traditional Setup</p>
+                    <span class="tap-hint">&#128065; Tap to expand</span>
                 </div>
             </div>
-            <div class="portfolio-item candid">
+
+            <div class="portfolio-item candid" onclick="openPhotoModal('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80', 'Eternal Rings')">
                 <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Wedding Rings">
                 <div class="portfolio-overlay">
                     <h4>The Eternal Rings</h4>
                     <p>Detail Shots</p>
+                    <span class="tap-hint">&#128065; Tap to expand</span>
                 </div>
             </div>
-            <div class="portfolio-item cinematic">
+
+            <div class="portfolio-item cinematic" onclick="openPhotoModal('https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1200&q=80', 'Together Forever')">
                 <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=80" alt="Groom Bride Hand">
                 <div class="portfolio-overlay">
                     <h4>Together Forever</h4>
                     <p>Candid Touch</p>
+                    <span class="tap-hint">&#128065; Tap to expand</span>
                 </div>
             </div>
-            <div class="portfolio-item traditional">
-                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Floral Dining Decor">
-                <div class="portfolio-overlay">
-                    <h4>Floral Ambience</h4>
-                    <p>Event Decoration</p>
+        </div>
+    </section>
+
+    <!-- FULL SCREEN POPUP MODAL FOR PHOTOS -->
+    <div id="photoModal" class="photo-modal" onclick="closePhotoModal()">
+        <span class="photo-modal-close">&times;</span>
+        <img id="modalImg" src="" alt="Expanded View">
+        <h3 id="modalTitle"></h3>
+    </div>
+
+    <!-- VIDEOS SECTION (PLAYABLE CINEMATIC FILMS) -->
+    <section id="videos" class="section-padding videos">
+        <div class="container">
+            <h2>Cinematic Wedding Films</h2>
+            <p style="text-align: center; margin-bottom: 25px;">Tap play to watch 4K wedding trailers & cinematic highlights.</p>
+            
+            <div class="video-grid">
+                <!-- VIDEO 1 (HTML5 PLAYABLE) -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80">
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-wedding-couple-walking-down-the-aisle-41584-large.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h4>Royal Destination Wedding</h4>
+                        <p>Cinematic Teaser &bull; Udaipur</p>
+                    </div>
                 </div>
-            </div>
-            <div class="portfolio-item candid">
-                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Engagement Rings Hand">
-                <div class="portfolio-overlay">
-                    <h4>Promise of Lifetime</h4>
-                    <p>Engagement Story</p>
-                </div>
-            </div>
-            <div class="portfolio-item destination">
-                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Outdoor Lawn Chairs">
-                <div class="portfolio-overlay">
-                    <h4>Lawn Ceremony</h4>
-                    <p>Destination Wedding</p>
-                </div>
-            </div>
-            <div class="portfolio-item cinematic">
-                <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Bridal Mandap Arch">
-                <div class="portfolio-overlay">
-                    <h4>Mandap Elegance</h4>
-                    <p>Cinematic Angle</p>
-                </div>
-            </div>
-            <div class="portfolio-item traditio
+
+                <!-- VIDEO 2 (HTML5 PLAYABLE) -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1583939003579-730e3918a45a
