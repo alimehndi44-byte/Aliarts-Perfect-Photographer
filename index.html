@@ -106,7 +106,7 @@
         }
         .service-card h3 { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
 
-        /* --- PORTFOLIO GALLERY (PHOTOS) --- */
+        /* --- PORTFOLIO GALLERY (UNIQUE PHOTOS) --- */
         .filters { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
         .filter-btn {
             background: transparent; border: none; color: var(--text-gray);
@@ -134,7 +134,7 @@
         .portfolio-overlay h4 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--gold); }
         .portfolio-overlay p { font-size: 0.85rem; color: var(--text-light); }
 
-        /* --- VIDEO SHOWCASE SECTION --- */
+        /* --- NATIVE DIRECT VIDEO SECTION --- */
         .videos { background: #080808; }
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 40px; }
         .video-card {
@@ -144,8 +144,7 @@
             transition: var(--transition);
         }
         .video-card:hover { border-color: var(--gold); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15); }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-player { width: 100%; height: 240px; object-fit: cover; background: #000; }
         .video-info { padding: 18px; text-align: center; }
         .video-info h4 { font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold); margin-bottom: 5px; }
         .video-info p { font-size: 0.85rem; color: var(--text-gray); }
@@ -259,7 +258,7 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION (EXPANDED PHOTO GALLERY - 12 PHOTOS) -->
+    <!-- PORTFOLIO SECTION (12 UNIQUE PHOTOS - NO DUPLICATES) -->
     <section id="portfolio" class="section-padding container">
         <h2>Photo Gallery</h2>
         
@@ -273,93 +272,93 @@
 
         <div class="portfolio-grid">
             <div class="portfolio-item candid">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Candid">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Couple">
                 <div class="portfolio-overlay">
-                    <h4>Royal Moments</h4>
+                    <h4>Royal Couple</h4>
                     <p>Candid Emotion &bull; Mumbai</p>
                 </div>
             </div>
             <div class="portfolio-item cinematic">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Cinematic Teaser">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Balloons Wedding">
                 <div class="portfolio-overlay">
-                    <h4>Cinematic Portrait</h4>
-                    <p>Drone & Gimbal Highlight</p>
+                    <h4>Celebration Sky</h4>
+                    <p>Cinematic Shot</p>
                 </div>
             </div>
             <div class="portfolio-item destination">
-                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Destination Shoot">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Black Sand Destination">
                 <div class="portfolio-overlay">
-                    <h4>Pre-Wedding Story</h4>
+                    <h4>Pre-Wedding Magic</h4>
                     <p>Destination Shoot</p>
                 </div>
             </div>
             <div class="portfolio-item traditional">
-                <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=80" alt="Traditional Ritual">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Royal Dining Setup">
                 <div class="portfolio-overlay">
-                    <h4>Haldi & Rituals</h4>
-                    <p>Traditional Details</p>
+                    <h4>Grand Banquet</h4>
+                    <p>Traditional Setup</p>
                 </div>
             </div>
-            <div class="portfolio-item destination">
-                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Royal Wedding Setup">
+            <div class="portfolio-item candid">
+                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Wedding Rings">
                 <div class="portfolio-overlay">
-                    <h4>Grand Stage Decor</h4>
-                    <p>Event Coverage</p>
+                    <h4>The Eternal Rings</h4>
+                    <p>Detail Shots</p>
                 </div>
             </div>
             <div class="portfolio-item cinematic">
-                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Bride Portrait">
+                <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=80" alt="Groom Bride Hand">
                 <div class="portfolio-overlay">
-                    <h4>Bridal Elegance</h4>
-                    <p>Cinematic Shot</p>
-                </div>
-            </div>
-            <div class="portfolio-item candid">
-                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Couple Laugh">
-                <div class="portfolio-overlay">
-                    <h4>Unscripted Joy</h4>
-                    <p>Real Candid Magic</p>
+                    <h4>Together Forever</h4>
+                    <p>Candid Touch</p>
                 </div>
             </div>
             <div class="portfolio-item traditional">
-                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Sangeet Night">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Floral Dining Decor">
                 <div class="portfolio-overlay">
-                    <h4>Sangeet Celebration</h4>
-                    <p>High Energy Event</p>
-                </div>
-            </div>
-            <div class="portfolio-item destination">
-                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Beach Shoot">
-                <div class="portfolio-overlay">
-                    <h4>Beach Sunset Couple</h4>
-                    <p>Goa Pre-Wedding</p>
+                    <h4>Floral Ambience</h4>
+                    <p>Event Decoration</p>
                 </div>
             </div>
             <div class="portfolio-item candid">
-                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Engagement Rings Hand">
                 <div class="portfolio-overlay">
-                    <h4>The Sacred Ring</h4>
+                    <h4>Promise of Lifetime</h4>
                     <p>Engagement Story</p>
                 </div>
             </div>
-            <div class="portfolio-item cinematic">
-                <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Groom Portrait">
+            <div class="portfolio-item destination">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Outdoor Lawn Chairs">
                 <div class="portfolio-overlay">
-                    <h4>Royal Groom</h4>
-                    <p>Cinematic Portrait</p>
+                    <h4>Lawn Ceremony</h4>
+                    <p>Destination Wedding</p>
+                </div>
+            </div>
+            <div class="portfolio-item cinematic">
+                <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Bridal Mandap Arch">
+                <div class="portfolio-overlay">
+                    <h4>Mandap Elegance</h4>
+                    <p>Cinematic Angle</p>
                 </div>
             </div>
             <div class="portfolio-item traditional">
-                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Reception Night">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Party Guests Kiss">
                 <div class="portfolio-overlay">
-                    <h4>Grand Reception</h4>
-                    <p>Full Event Coverage</p>
+                    <h4>Joyous Union</h4>
+                    <p>Reception Night</p>
+                </div>
+            </div>
+            <div class="portfolio-item destination">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Bride Smile Close">
+                <div class="portfolio-overlay">
+                    <h4>Bridal Smile</h4>
+                    <p>Pure Candid Portrait</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW CINEMATIC VIDEOS SECTION (5 VIDEOS) -->
+    <!-- CLEAN DIRECT HTML5 VIDEO SECTION (NO YOUTUBE BRANDING) -->
     <section id="videos" class="section-padding videos">
         <div class="container">
             <h2>Cinematic Wedding Films</h2>
@@ -368,20 +367,20 @@
             <div class="video-grid">
                 <!-- VIDEO 1 -->
                 <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Royal Wedding Teaser" allowfullscreen></iframe>
-                    </div>
+                    <video class="video-player" controls poster="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80">
+                        <source src="videos/wedding-teaser.mp4" type="video/mp4">
+                    </video>
                     <div class="video-info">
                         <h4>Royal Destination Wedding</h4>
-                        <p>Cinematic Film &bull; Udaipur</p>
+                        <p>Cinematic Teaser &bull; Udaipur</p>
                     </div>
                 </div>
 
                 <!-- VIDEO 2 -->
                 <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Pre-Wedding Film" allowfullscreen></iframe>
-                    </div>
+                    <video class="video-player" controls poster="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80">
+                        <source src="videos/prewedding-film.mp4" type="video/mp4">
+                    </video>
                     <div class="video-info">
                         <h4>Sunset Pre-Wedding Story</h4>
                         <p>Cinematic &bull; Drone Aerial Shot</p>
@@ -390,9 +389,9 @@
 
                 <!-- VIDEO 3 -->
                 <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Grand Haldi Sangeet" allowfullscreen></iframe>
-                    </div>
+                    <video class="video-player" controls poster="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80">
+                        <source src="videos/haldi-sangeet.mp4" type="video/mp4">
+                    </video>
                     <div class="video-info">
                         <h4>Grand Haldi & Sangeet Night</h4>
                         <p>Traditional Event Highlight</p>
@@ -401,5 +400,4 @@
 
                 <!-- VIDEO 4 -->
                 <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Bridal Entry" allowfullscr
+                    <video class="video-player" controls poster="https:
